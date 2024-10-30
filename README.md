@@ -31,11 +31,11 @@ pytest test_search_product.py      # Run product search test
 
 ## Project Structure
 
-- **test_google_search.py: Automates Google search with dynamic dropdown handling.
+- **test_google_search.py** Automates Google search with dynamic dropdown handling.
 
-- **test_register_user.py: Automates user registration, account creation, and deletion on Automation Exercise.
+- **test_register_user.py** Automates user registration, account creation, and deletion on Automation Exercise.
 
-- **test_search_product.py: Automates product search functionality.
+- **test_search_product.py** Automates product search functionality.
 
 
 ## Task Descriptions
