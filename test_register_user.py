@@ -31,8 +31,8 @@ def register_user():
         print("New User Signup is visible.")
 
         # Step 5: Enter name and email address
-        driver.find_element(By.NAME, "name").send_keys("Test User")
-        driver.find_element(By.NAME, "email").send_keys("testuser@example.com")
+        driver.find_element(By.XPATH, "//input[@data-qa='signup-name']").send_keys("Test User")
+        driver.find_element(By.XPATH, "//input[@data-qa='signup-email']").send_keys("testuser@example.com")
 
         # Step 6: Click 'Signup' button
         driver.find_element(By.XPATH, "//button[text()='Signup']").click()
@@ -45,27 +45,26 @@ def register_user():
 
         # Step 8: Fill details
         driver.find_element(By.ID, "id_gender1").click()  # Select title
-        driver.find_element(By.NAME, "password").send_keys("password123")
-        driver.find_element(By.NAME, "days").send_keys("1")
-        driver.find_element(By.NAME, "months").send_keys("January")
-        driver.find_element(By.NAME, "years").send_keys("2000")
+        driver.find_element(By.ID, "password").send_keys("password123")
+        driver.find_element(By.ID, "days").send_keys("1")
+        driver.find_element(By.ID, "months").send_keys("January")
+        driver.find_element(By.ID, "years").send_keys("2000")
 
         # Step 9: Select checkboxes
-        driver.find_element(By.NAME, "newsletter").click()
-        driver.find_element(By.NAME, "offers").click()
+        driver.find_element(By.ID, "newsletter").click()
+        driver.find_element(By.ID, "optin").click()
 
         # Step 10: Fill more details
-        driver.find_element(By.NAME, "first_name").send_keys("First")
-        driver.find_element(By.NAME, "last_name").send_keys("Last")
-        driver.find_element(By.NAME, "address1").send_keys("123 Street")
-        driver.find_element(By.NAME, "address2").send_keys("Apt 1")
-        driver.find_element(By.NAME, "country").send_keys("United States")
-        driver.find_element(By.NAME, "state").send_keys("State")
-        driver.find_element(By.NAME, "city").send_keys("City")
-        driver.find_element(By.NAME, "zipcode").send_keys("12345")
-        driver.find_element(By.NAME, "mobile_number").send_keys("1234567890")
+        driver.find_element(By.ID, "first_name").send_keys("First")
+        driver.find_element(By.ID, "last_name").send_keys("Last")
+        driver.find_element(By.ID, "address1").send_keys("123 Street")
+        driver.find_element(By.ID, "country").send_keys("United States")
+        driver.find_element(By.ID, "state").send_keys("State")
+        driver.find_element(By.ID, "city").send_keys("City")
+        driver.find_element(By.ID, "zipcode").send_keys("12345")
+        driver.find_element(By.ID, "mobile_number").send_keys("1234567890")
 
-        # Step 11: Click 'Create Account button'
+        # Step 11: Click 'Create Account' button
         driver.find_element(By.XPATH, "//button[text()='Create Account']").click()
 
         # Step 12: Verify that 'ACCOUNT CREATED!' is visible
@@ -75,11 +74,11 @@ def register_user():
         print("Account Created is visible.")
 
         # Step 13: Click 'Continue' button
-        driver.find_element(By.XPATH, "//button[text()='Continue']").click()
+        driver.find_element(By.XPATH, "//a[text()='Continue']").click()
 
         # Step 14: Verify that 'Logged in as username' is visible
         assert WebDriverWait(driver, 10).until(
-            EC.visibility_of_element_located((By.XPATH, "//a[text()=' Logged in as ']"))
+            EC.visibility_of_element_located((By.XPATH, "//a[contains(text(),'Logged in as')]"))
         ), "'Logged in as username' is not visible"
         print("Logged in as username is visible.")
 
@@ -93,12 +92,12 @@ def register_user():
         print("Account Deleted is visible.")
 
         # Step 17: Click 'Continue' button
-        driver.find_element(By.XPATH, "//button[text()='Continue']").click()
+        driver.find_element(By.XPATH, "//a[text()='Continue']").click()
 
     finally:
-        # Wait for 10 minutes before closing the browser
-        print("Test completed. Closing in 10 minutes...")
-        time.sleep(600)  # Wait for 10 minutes (600 seconds)
+        # Wait for a few seconds before closing the browser
+        print("Test completed. Closing browser in 5 seconds...")
+        time.sleep(5)  
         driver.quit()
 
 if __name__ == "__main__":
