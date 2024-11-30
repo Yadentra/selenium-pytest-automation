@@ -36,8 +36,8 @@ def test_google_search():
         )
         assert search_term in driver.title, "Results page did not contain the expected search term in the title"
 
-        # Wait for 5 minutes (300 seconds)
-        time.sleep(300)
+        # Wait for 05 seconds
+        time.sleep(05)
 
     except Exception as e:
         print(f"An error occurred: {e}")
